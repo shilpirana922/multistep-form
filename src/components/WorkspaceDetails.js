@@ -1,8 +1,14 @@
-import React from 'react';
-import { TextField, Box, Button, Typography } from '@material-ui/core';
-import "../styles/userDetails.css";
+import React ,{useState} from 'react';
+import { TextField, Button, Typography } from '@material-ui/core';
+import "../styles/workspaceDetails.css";
 
-const WorkspaceDetails = ()=>{
+const styleInputFields = {
+    fontSize:12,
+}
+
+const WorkspaceDetails = ({handleActiveStep})=>{
+    const [workspaceName ,setWorkspaceName] = useState("");
+    const [workspaceUrl , setWorkspaceUrl] = useState("");
      return(
         <form className="container">
             <h2>Let's set up a home for your all work</h2>
@@ -15,17 +21,23 @@ const WorkspaceDetails = ()=>{
                     size="small"
                     placeholder='eden'
                     fullWidth={true}
+                    onChange={e => setWorkspaceName(e.target.value)}
+                    value={workspaceName}
+                    InputProps={{style:styleInputFields}}
                 />
 
-                <Typography className="labelText">Workspace URL (optional)</Typography>
+                <Typography className="labelText" style={{marginTop:'12px'}}>Workspace URL <span className="optional">(optional)</span></Typography>
                 <TextField
                 className='text'
                     variant="outlined"
                     size="small"
-                    placeholder='www.eden.com/|example'
+                    placeholder='www.eden.com/   Example'
                     fullWidth={true}
+                    onChange={e => setWorkspaceUrl(e.target.value)}
+                    value={workspaceUrl}
+                    InputProps={{style:styleInputFields}}
                 />
-                <Button id ="btn">Create Workspace</Button>
+                <Button id ="btn" onClick={handleActiveStep}>Create Workspace</Button>
             </div>
             
         </form>

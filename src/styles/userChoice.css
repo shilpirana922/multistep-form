@@ -1,7 +1,15 @@
-
+.ChoiceContainer{
+    display:flex;
+    align-items: center;
+    width:80vw;
+    background-color: white;
+    margin-top:20px;
+    margin-bottom:40px;
+    flex-direction: column;
+}
 #btn{
     width:350px;
-    background-color:rgb(86, 86, 247);
+    background-color:#664DE5;
     outline: none;
     cursor:pointer;
     border-radius: 4px;
@@ -9,6 +17,7 @@
     margin-top:20px;
     display:block;
     font-size: 10px;
+    text-transform: none;
 }
 .text{
     font-size: 14px;
@@ -22,33 +31,33 @@
     color:rgb(26, 24, 24)
 }
 .choice{
-    border:1px solid black;
     cursor:pointer;
-    width:40%;
     margin-right: 20px;
     border-radius: 5px;
     font-size: 14px;
     color: gray;
-    text-align:  center;
+    text-align: start;
     padding:10px 20px;
 }
-.ChoiceContainer{
-    display:flex;
-    align-items: center;
-    width:90vw;
-    background-color: white;
-    margin-top:40px;
-    margin-bottom:40px;
-    flex-direction: column;
-}
+
 .choiceSelect{
     display: flex;
-    width:400px;
-    height: 150px;
+    width:330px;
+    margin-left: 18px;;
 }
 .profile{
     color:rgb(26, 24, 24);
+    font-weight: bold;
+    font-size: small;
 }
 .icons{
     color:rgb(86, 86, 247);
+    margin-bottom: 10px;
+}
+.peraText{
+    font-size: 12px;
+}
+
+.active{
+    border-color: #664DE5;
 }

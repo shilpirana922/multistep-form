@@ -1,0 +1,10 @@
+.stepperContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.stepper{
+    width:330px;
+}

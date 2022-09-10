@@ -1,19 +1,12 @@
 import React from 'react'
-import Userdetails from './UserDetails'
-import WorkspaceDetails from './WorkspaceDetails'
-import UserChoice from './UserChoice'
-import Success from './Success';
-import StepperHorizontal from './Stepper';
-// import Logo from './Logo';
+import StepperHorizontal from './StepperHorizontal';
+import Logo from './Logo';
+// import "../styles/logo.css";
 const Signup =()=>{
     return (
       <div>
+        <Logo/>
         <StepperHorizontal/>
-        {/* <Logo/> */}
-        <Userdetails/>
-        <WorkspaceDetails/>
-         <UserChoice/>
-        <Success/> 
       </div>
     )
 }
