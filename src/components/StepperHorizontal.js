@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Box,Stepper,Step,StepLabel, StepConnector, withStyles} from '@material-ui/core';
+import {Box,Stepper,Step,StepLabel,} from '@material-ui/core';
 import Userdetails from './UserDetails'
 import WorkspaceDetails from './WorkspaceDetails'
 import UserChoice from './UserChoice'
@@ -13,33 +13,6 @@ const steps = [
   ''
 ];
 
-const QontoConnector = withStyles({
-  alternativeLabel: {
-    top: 10,
-    left: 'calc(-50% + 16px)',
-    right: 'calc(50% + 16px)',
-    '& $line': {
-      borderColor: '#784af4',
-      
-    }
-  },
-  active: {
-    '& $line': {
-      borderColor: '#784af4',
-
-    },
-  },
-  completed: {
-    '& $line': {
-      borderColor: '#784af4',
-    },
-  },
-  line: {
-    borderColor: '#eaeaf0',
-    borderTopWidth: 3,
-    borderRadius: 1,
-  },
-})(StepConnector);
 
 const handleSteps = (step, handleActiveStep) => {
    switch(step){
@@ -68,7 +41,7 @@ const StepperHorizontal =()=> {
 
   return (
     <Box className='stepperContainer' >
-      <Stepper activeStep={activeStep} alternativeLabel className='stepper'  connector={<QontoConnector />}>
+      <Stepper activeStep={activeStep} alternativeLabel className='stepper' >
         {steps.map(( label,index) => (
           <Step key={index}>
             <StepLabel onClick={()=>prevActiveStep(index)} style={{color:"#664DE5"}}>{label}</StepLabel>

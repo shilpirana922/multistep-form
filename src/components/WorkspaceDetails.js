@@ -9,6 +9,23 @@ const styleInputFields = {
 const WorkspaceDetails = ({handleActiveStep})=>{
     const [workspaceName ,setWorkspaceName] = useState("");
     const [workspaceUrl , setWorkspaceUrl] = useState("");
+    const [isWorkspaceNameError, setIsWorkspaceNameError] = useState(false);
+    const [isWorkspaceUrlError, setIsWorkspaceUrlError] = useState(false);
+
+    const validateFields = (e) => {
+        if(workspaceName && workspaceUrl){
+            handleActiveStep(e);
+        }
+
+        if(!workspaceName){
+            setIsWorkspaceNameError(true)
+        }
+
+        if(!workspaceUrl){
+            setIsWorkspaceUrlError(true)
+        }
+
+    }
      return(
         <form className="container">
             <h2>Let's set up a home for your all work</h2>
@@ -24,6 +41,8 @@ const WorkspaceDetails = ({handleActiveStep})=>{
                     onChange={e => setWorkspaceName(e.target.value)}
                     value={workspaceName}
                     InputProps={{style:styleInputFields}}
+                    error={isWorkspaceNameError}
+                    id={isWorkspaceNameError?"standard-error":""}
                 />
 
                 <Typography className="labelText" style={{marginTop:'12px'}}>Workspace URL <span className="optional">(optional)</span></Typography>
@@ -36,8 +55,10 @@ const WorkspaceDetails = ({handleActiveStep})=>{
                     onChange={e => setWorkspaceUrl(e.target.value)}
                     value={workspaceUrl}
                     InputProps={{style:styleInputFields}}
+                    error={isWorkspaceUrlError}
+                    id={isWorkspaceUrlError?"standard-error":""}
                 />
-                <Button id ="btn" onClick={handleActiveStep}>Create Workspace</Button>
+                <Button id ="btn" onClick={validateFields}>Create Workspace</Button>
             </div>
             
         </form>
