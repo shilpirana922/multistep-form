@@ -9,6 +9,25 @@ const styleInputFields = {
 const UserChoice = ({handleActiveStep}) => {
     const [fullName ,setFullName] = useState("");
     const [displayName , setDisplayName] = useState("");
+    const [isNameError, setIsNameError] = useState(false);
+    const [isDisplayNameError, setIsDisplayNameError] = useState(false);
+
+
+    const validateFields = (e) => {
+        if(fullName && displayName){
+            handleActiveStep(e);
+        }
+
+        if(!fullName){
+            setIsNameError(true)
+        }
+
+        if(!displayName){
+            setIsDisplayNameError(true)
+        }
+
+    }
+
     return (
 
         <form className="container">
@@ -26,6 +45,8 @@ const UserChoice = ({handleActiveStep}) => {
                     onChange={e => setFullName(e.target.value)}
                     value={fullName}
                     InputProps={{style:styleInputFields}}
+                    error={isNameError}
+                    id={isNameError?"standard-error":""}
                 />
                 <Typography className="labelText" style={{marginTop:'12px'}}>Display name</Typography>
                 <TextField
@@ -37,8 +58,10 @@ const UserChoice = ({handleActiveStep}) => {
                     onChange={e => setDisplayName(e.target.value)}
                     value={displayName}
                     InputProps={{style:styleInputFields}} 
+                    error={isDisplayNameError}
+                    id={isDisplayNameError?"standard-error":""}
                 />
-                <Button id ="btn" onClick={handleActiveStep}>Create Workspace</Button>
+                <Button id ="btn" onClick={validateFields}>Create Workspace</Button>
             </div>
             
         </form>
